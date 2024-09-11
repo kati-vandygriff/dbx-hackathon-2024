@@ -129,8 +129,8 @@ def create_cnn_model(input_shape=(224, 224, 3)):
 
   return model
 
-annotation_dir = "/Workspace/Users/vn394@cummins.com/annotations" # directory with xml files 
-jpg_dir = "/Workspace/Users/vn394@cummins.com/images" # directory with jpg 
+annotation_dir = "path_to_annotation_dir" # directory with xml files 
+jpg_dir = "path_to_jpg_dir" # directory with jpg 
   
 # Load and split the annotations
 annotations = parse_all_voc_xml(annotation_dir)
@@ -153,8 +153,8 @@ test_annotations = parse_all_voc_xml(annotation_dir)
 test_generator = HelmetDataGenerator(test_annotations, jpg_dir, batch_size=32, input_size=(224, 224), augment=False)
 
 from PIL import Image
-has_helmet_picture = "/Workspace/Users/vn394@cummins.com/has_helmet.jpg"
-no_helmet_picture = "/Workspace/Users/vn394@cummins.com/no_helmet.jpg"
+has_helmet_picture = "path_to_single_helmet_jpg"
+no_helmet_picture = "path_to_single_no_helmet_jpg"
 
 def preprocess_image(image_path, input_size=(224, 224)):
   image = cv2.imread(image_path)
